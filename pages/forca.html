@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <audio autoplay loop>
+        <source src="../static/audio/kudasai.mp3" type="audio/mp3">
+    </audio>
     <h1 class="text-center">Jogo da Forca</h1>
 
     <!-- Seletor de Tema -->
@@ -23,14 +26,12 @@
         </select>
     </div>
 
-    <!-- Vídeo de Fundo -->
     <video id="background-video" autoplay muted loop style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
         <source src="../static/video/steam02.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
 
-    <!-- Container do Jogo -->
     <div class="container mt-4">
         <div id="jogo" class="text-center">
             <p id="dica" class="lead"></p>
@@ -48,12 +49,10 @@
         </div>
     </div>
 
-    <!-- Rodapé -->
     <footer class="text-center mt-4">
         <p>&copy; 2024 Kauã Francino dos Santos Lima. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Scripts -->
     <script src="../static/js/temas.js"></script>
     <script src="../static/js/jogos.js"></script>
     <script src="../static/js/bonecos.js"></script>    

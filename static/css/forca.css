@@ -2,9 +2,9 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /* Faz o body ter pelo menos a altura total da tela */
     margin: 0;
-    position: relative; /* Para garantir que o vídeo fique atrás do conteúdo */
+    position: relative;
 }
 
 #background-video {
@@ -108,14 +108,16 @@ body {
     background-color: blue; 
     position: absolute;
 }
-
+.container {
+    flex-grow: 1; /* Faz com que o conteúdo cresça e ocupe o espaço disponível */
+}
 footer {
     background-color: #00c3ff80;
     color: #fff;
     padding: 15px 0;
     font-size: 18px;
     text-align: center;
-    margin-top: auto;
+    margin-top: auto; 
     line-height: 1.6; 
     width: 100%;
 }
