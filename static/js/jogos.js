@@ -61,6 +61,10 @@ function adivinharLetra() {
             }
             if (letraNaoEncontrada) {
                 tentativasRestantes--;
+                // Exibir alerta quando errar
+                document.getElementById("erro").textContent = `Você errou a letra: ${letraAdivinhada}`;
+            } else {
+                document.getElementById("erro").textContent = "";
             }
 
             atualizarDisplayDoJogo();
@@ -84,6 +88,7 @@ function adivinharLetra() {
     }
 }
 
+
 function carregarTema(tema) {
     switch (tema) {
         case 'tecnologia':
@@ -98,12 +103,17 @@ function carregarTema(tema) {
             palavras = ["maçã", "banana", "laranja"];
             dicas = ["Fruta vermelha e crocante", "Fruta amarela e rica em potássio", "Fruta cítrica rica em vitamina C"];
             break;
+        case 'filmes': // Adicionado o tema "filmes"
+            palavras = ["matrix", "inception", "avatar"];
+            dicas = ["Filme sobre uma realidade virtual com Keanu Reeves", "Filme de ficção científica com sonhos dentro de sonhos", "Filme sobre um mundo alienígena chamado Pandora"];
+            break;
         default:
             palavras = [];
             dicas = [];
             break;
     }
 }
+
 
 // Inicie o jogo quando o documento estiver carregado e o tema for selecionado
 document.addEventListener('DOMContentLoaded', () => {

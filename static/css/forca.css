@@ -1,78 +1,98 @@
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Faz o body ter pelo menos a altura total da tela */
+    min-height: 100vh;
     margin: 0;
     position: relative;
+    background-color: #f4f4f4;
 }
 
+h1 {
+    color: #00928b;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tema_escolher {
+    color: #00928b;
+}
+
+/* Responsividade do vídeo de fundo */
 #background-video {
-    position: fixed; /* Fica fixo na tela */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Faz o vídeo cobrir a área sem distorcer */
-    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+    object-fit: cover;
+    z-index: -1;
 }
 
+/* Container principal */
 .container {
-    background-color: #ffffff42;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 90%;
-    width: 45%;
+    width: 100%;
     margin: 20px auto;
-    box-sizing: border-box;
-    position: relative; /* Garante que o conteúdo fique acima do vídeo */
-    z-index: 1; /* Garante que o conteúdo fique acima do vídeo */
+    position: relative;
+    z-index: 1;
 }
 
-/* Restante do seu CSS... */
+@media (min-width: 768px) {
+    .container {
+        width: 60%;
+    }
+}
 
+@media (min-width: 1024px) {
+    .container {
+        width: 45%;
+    }
+}
 
+/* Estilos para a área do jogo */
 #dica {
-    color: #6c757d;
+    color: #00928b;
     margin-bottom: 20px;
 }
 
-#palavra { 
+#palavra {
     color: #343a40;
     font-weight: bold;
     letter-spacing: 2px;
     margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
 #guess {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    box-sizing: border-box;
+    text-align: center;
 }
 
 .botoes {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 10px;
     flex-wrap: wrap;
 }
 
 .btn {
     padding: 10px 20px;
-    font-size: 16px; 
-    border-radius: 4px; 
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    flex: 1 1 150px; 
+    font-size: 16px;
+    border-radius: 4px;
+    flex: 1 1 150px;
     max-width: 200px;
 }
 
 .btn-primary {
-    background-color: #ffa600e7; 
+    background-color: #ffa600e7;
     color: white;
 }
 
@@ -85,13 +105,11 @@ body {
     color: white;
 }
 
-.btn-secondary:hover { 
+.btn-secondary:hover {
     background-color: #5a6268;
 }
 
-/* Espaçamento para status e Letras tentadas */
-#status,
-#attempts {
+#status, #attempts {
     font-size: 1.1em;
     color: #495057;
     margin-top: 20px;
@@ -104,104 +122,123 @@ body {
     position: relative;
 }
 
-#forca div {
-    background-color: blue; 
+/* Botão switch para trocar o vídeo */
+.switch-container {
     position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
 }
-.container {
-    flex-grow: 1; /* Faz com que o conteúdo cresça e ocupe o espaço disponível */
-}
+
+/* From Uiverse.io by EddyBel */ 
+/* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    animation: toggle__animation 3s infinite;
+  }
+  
+  .switch::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    filter: blur(20px);
+    z-index: -1;
+    border-radius: 50px;
+    background-color: #d8ff99;
+    background-image: radial-gradient(at 21% 46%, hsla(183,65%,60%,1) 0px, transparent 50%),
+  radial-gradient(at 23% 25%, hsla(359,74%,70%,1) 0px, transparent 50%),
+  radial-gradient(at 20% 1%, hsla(267,83%,75%,1) 0px, transparent 50%),
+  radial-gradient(at 86% 87%, hsla(204,69%,68%,1) 0px, transparent 50%),
+  radial-gradient(at 99% 41%, hsla(171,72%,77%,1) 0px, transparent 50%),
+  radial-gradient(at 55% 24%, hsla(138,60%,62%,1) 0px, transparent 50%);
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fdfefedc;
+    transition: .4s;
+    border-radius: 30px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    left: 0.3em;
+    bottom: 0.35em;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -10px 10px 0px inset,
+       rgba(0, 0, 0, 0.09) 0px -1px 15px -8px;
+    background-color: #ff99fd;
+    background-image: radial-gradient(at 81% 39%, hsla(327,79%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 11% 72%, hsla(264,64%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 23% 20%, hsla(75,98%,71%,1) 0px, transparent 50%);
+  }
+  
+  .input__check:checked + .slider {
+    background-color: #17202A;
+  }
+  
+  .input__check:checked + .slider:before {
+    transform: translateX(1.5em);
+  }
+  
+  @keyframes toggle__animation {
+    0%, 100% {
+      transform: translateY(-10px) rotateX(15deg) rotateY(-20deg);
+    }
+  
+    50% {
+      transform: translateY(0px) rotateX(15deg) rotateY(-20deg);
+    }
+  }
+
+/* Estilos do rodapé */
 footer {
-    background-color: #00c3ff80;
-    color: #fff;
-    padding: 15px 0;
-    font-size: 18px;
+    background-color: #009df82a;
+    padding: 1rem;
     text-align: center;
-    margin-top: auto; 
-    line-height: 1.6; 
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
     width: 100%;
 }
 
-header {
-    background-color: #00c3ff80; 
-    color: #fff;
-    padding: 15px 0;
-    text-align: center; 
-    margin-bottom: 20px;
+footer p {
+    margin: 0;
 }
 
-img.senai-logo {
-    max-width: 20%; 
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.display-4 {
-    font-size: 2.5rem; /* Tamanho da fonte para telas maiores */
-    font-weight: 300;
-    line-height: 1.2;
-}
-
-/* Media Queries para telas menores */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-        padding: 15px;
+/* Ajuste responsivo para o input e os botões */
+@media (max-width: 576px) {
+    #guess {
+        font-size: 1.2em;
     }
-
-    .btn {
-        flex: 1 1 100%; /* Botões ocupam toda a Largura disponível */ 
-        max-width: none; /* Remove a Largura máxima */
-        margin-bottom: 10px; /* Espaçamento inferior entre botões empilhados */
-    }
-
-    #forca {
-        width: 120px; 
-        height: 200px;
-    }
-
-    footer,
-    header {
-        padding: 10px 0;
-        font-size: 16px;
-    }
-
-    img.senai-logo {
-        max-width: 30%;
-    }
-
-    .display-4 {
-        font-size: 2rem; /* Ajuste para tablets e dispositivos intermediários */
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
-
-    #forca {
-        width: 100px; 
-        height: 180px;
-    }
-
     .btn {
         font-size: 14px;
         padding: 8px 16px;
-    }
-
-    footer,
-    header {
-        font-size: 14px;
-    }
-
-    img.senai-logo {
-        max-width: 40%;
-    }
-
-    .display-4 {
-        font-size: 1.5rem; /* Ajuste para dispositivos móveis */
     }
 }

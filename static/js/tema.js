@@ -36,6 +36,18 @@ const temas = {
             "Fruta vermelha e crocante",
             "Fruta cítrica e laranja"
         ]
+    },
+    filmes: { // Novo tema "filmes"
+        palavras: [
+            "matrix",
+            "inception",
+            "avatar"
+        ],
+        dicas: [
+            "Filme sobre uma realidade virtual com Keanu Reeves",
+            "Filme de ficção científica com sonhos dentro de sonhos",
+            "Filme sobre um mundo alienígena chamado Pandora"
+        ]
     }
 };
 
@@ -55,6 +67,10 @@ function atualizarTema(tema) {
         palavras = temas[tema].palavras;
         dicas = temas[tema].dicas;
         iniciarJogo();
+    } else {
+        palavras = [];
+        dicas = [];
+        alert('Tema inválido ou não selecionado!');
     }
 }
 
