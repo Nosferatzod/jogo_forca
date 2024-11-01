@@ -1,3 +1,4 @@
+/* Estilos básicos */
 html, body {
     text-align: center;
     height: 100%;
@@ -5,21 +6,27 @@ html, body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: #333;
-    position: relative; /* Para garantir que o vídeo fique atrás do conteúdo */
+    overflow-x: hidden;
 }
 
 body {
     overflow: hidden;
 }
-
+.btn-play {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
 #background-video {
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Faz o vídeo cobrir a área sem distorcer */
-    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+    object-fit: cover;
+    z-index: -1;
 }
 
 .senai-logo, main, footer {
@@ -32,6 +39,18 @@ body {
     margin: auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.5); /* Fundo branco com leve transparência */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes de layout */
+main, footer, .senai-logo {
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    margin: auto;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -142,4 +161,39 @@ button {
     height: 100%;
     object-fit: cover; /* Faz o vídeo cobrir a área sem distorcer */
     z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .btn-play {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.2rem;
+    }
+    p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    .btn-play {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    footer p {
+        font-size: 0.8rem;
+    }
 }
