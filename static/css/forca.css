@@ -1,16 +1,16 @@
 :root {
     --cor-fundo: #f4f4f4;
-    --cor-titulo: #fffb00;
-    --cor-tema-escolher: #ffee00;
+    --cor-titulo: #000000;
+    --cor-tema-escolher: #000000;
     --cor-container: rgba(255, 255, 255, 0.103);
     --cor-sombra-container: rgba(0, 140, 255, 0.1);
-    --cor-dica: #ffee00;
+    --cor-dica: #000000;
     --cor-palavra: #343a40;
     --cor-botao-primario: #ffa600e7;
     --cor-botao-primario-hover: #dd9000e7;
     --cor-botao-secundario: #6c757d;
     --cor-botao-secundario-hover: #5a6268;
-    --cor-texto-status: #495057;
+    --cor-texto-status: #ffffff;
     --cor-switch-fundo: #fdfefedc;
     --cor-switch-bolinha: #ff99fd;
     --cor-switch-bolinha-checked: #17202A;
